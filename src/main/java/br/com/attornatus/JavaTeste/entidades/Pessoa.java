@@ -17,7 +17,7 @@ public class Pessoa {
 
     private Date dataNascimento;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<Endereco> endereco;
 
     // Getters e Setters
