@@ -26,4 +26,16 @@ public class PessoaControlador {
         return ResponseEntity.ok(pessoa);
     }
 
+    // Put, atualiza uma pessoa pelo ID informado.
+    @PutMapping(value = "/pessoa/{id}")
+    public ResponseEntity atualizaPessoa (@PathVariable long id, @RequestBody Pessoa pessoa) {
+        Pessoa pessoaRetorno = pessoaServico.atualizarPessoa (id, pessoa);
+        return ResponseEntity.ok(pessoaRetorno);
+    }
+
+    @DeleteMapping(value = "/pessoa/{id}")
+    public ResponseEntity deletaPessoa (@PathVariable long id){
+        pessoaServico.excluirPessoa (id);
+        return ResponseEntity.ok("");
+    }
 }

@@ -21,4 +21,17 @@ public class PessoaServico {
        Pessoa pessoa = pessoaRepositorio.findById(id).get();
        return pessoa;
     }
+
+    //Função atualizar pessoa
+    public Pessoa atualizarPessoa(long id, Pessoa pessoa) {
+        Pessoa pessoaSalvaBanco = devolverPessoa(id);
+        pessoaSalvaBanco.setNome(pessoa.getNome());
+        pessoaSalvaBanco.setDataNascimento(pessoa.getDataNascimento());
+        pessoaRepositorio.save(pessoaSalvaBanco);
+        return pessoaSalvaBanco;
+    }
+
+    public void excluirPessoa(long id) {
+        pessoaRepositorio.deleteById(id);
+    }
 }
